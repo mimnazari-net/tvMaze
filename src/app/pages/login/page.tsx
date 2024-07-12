@@ -20,23 +20,7 @@ export default function login() {
 
   const [phoneNumber, setPhoneNumber] = useState<string>("");
   const [username, setUsername] = useState<string>("");
-  let agre: boolean = false;
-  // alerts
-  const [showUserAlert, setShowUserAlert] = useState(false);
-  const [showPhoneAlert, setShowPhoneAlert] = useState(false);
-  const [showNullPhoneAlert, setShowNullPhoneAlert] = useState(false);
-
-  const handleCloseUserAlert = () => {
-    setShowUserAlert(false);
-  };
-
-  const handleClosePhoneAlert = () => {
-    setShowPhoneAlert(false);
-  };
-
-  const handleCloseNullPhoneAlert = () => {
-    setShowNullPhoneAlert(false);
-  };
+ 
 
   type InputEvent = React.ChangeEvent<HTMLInputElement>;
 
@@ -62,33 +46,9 @@ export default function login() {
   return (
     <div className="login_container">
       <div className="login_right_side">
-        {showUserAlert && (
-          <Alert
-            severity="error"
-            onClose={handleCloseUserAlert}
-            style={{ marginBottom: "10px" }}
-          >
-            لطفا نام کاربری خود را وارد نمایید
-          </Alert>
-        )}
-        {showNullPhoneAlert && (
-          <Alert
-            severity="error"
-            onClose={handleCloseNullPhoneAlert}
-            style={{ marginBottom: "10px" }}
-          >
-            لطفا شماره تماس خود را وارد نمایید
-          </Alert>
-        )}
-        {showPhoneAlert && (
-          <Alert severity="warning" onClose={handleClosePhoneAlert}>
-            لطفا شماره تماس خود را صحیح وارد نمایید
-          </Alert>
-        )}
-
+        
         <div className="login_right_side_container">
-          <p className="login_right_side_title">خوش آمدید!</p>
-
+          <p className="login_right_side_title">Wellcome !</p>
           <div className="login_right_side_inputs">
             <div className="login_right_side_inputs_i">
               <FaRegUser />
@@ -97,7 +57,7 @@ export default function login() {
               value={username}
               maxLength={30}
               onChange={handleChangeUsername}
-              placeholder="نام و نام خانوادگی"
+              placeholder="username"
             />
           </div>
 
@@ -110,7 +70,7 @@ export default function login() {
               maxLength={11}
               onChange={handleChangePhoneNumber}
               
-              placeholder="شماره تماس"
+              placeholder="phone number"
             />
           </div>
 
@@ -118,11 +78,8 @@ export default function login() {
             <input
               type="checkbox"
               name="agreement"
-              onChange={(e) => {
-                agre = e.target.checked;
-              }}
             />
-            <p>تمامی ضوابط و قوانین را می پذیرم.</p>
+            <p>I agree to the Terms & Conditions</p>
           </div>
 
           <button
@@ -130,29 +87,19 @@ export default function login() {
             onClick={() => {
               var regex = new RegExp("^(0)?9\\d{9}$");
               var result = regex.test(phoneNumber);
-              if (phoneNumber === "") {
-                setShowNullPhoneAlert(true);
-              } else {
-                if (!result) {
-                  setShowPhoneAlert(true);
-                }
-              }
-              if (username === "") {
-                setShowUserAlert(true);
-              }
 
-              if (username !== "" && result && agre) {
+              if (username !== "" && result ) {
                 dispatch(fillUserAccount(userObj));
                 dispatch(addUser(userObj));
-                router.replace("/pages/vertifycode");
+                router.replace("/pages/");
               }
             }}
           >
-            دریافت کد تایید
+            Login 
           </button>
         </div>
       </div>
-      <div className="login_left_side "></div>
+      <div className="login_left_side"></div>
     </div>
   );
 }
