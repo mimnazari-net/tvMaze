@@ -1,0 +1,32 @@
+.searchbar_content {
+  width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: absolute;
+}
+
+.searchbar_input {
+  width: 450px;
+  position: absolute;
+  height: 45px;
+  border: none;
+  border-radius: 60px;
+  padding-left: 20px;
+  font-size: 15px;
+}
+.searchbar_btn {
+  width: 100px;
+  height: 45px;
+  background-color: rgb(30, 108, 252);
+  position: relative;
+  border: none;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  color: white;
+  cursor: pointer;
+}
+
+.searchbar_input:focus {
+  outline: none;
+}
