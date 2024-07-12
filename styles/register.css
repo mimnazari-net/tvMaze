@@ -88,7 +88,7 @@
   
   .register_btn {
     height: 56px;
-    background: var(--bi-navy);
+    background: gray;
     border: none;
     border-radius: 5px;
     color: white;

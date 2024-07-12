@@ -73,15 +73,6 @@ export default function login() {
               placeholder="phone number"
             />
           </div>
-
-          <div className="login_ruls">
-            <input
-              type="checkbox"
-              name="agreement"
-            />
-            <p>I agree to the Terms & Conditions</p>
-          </div>
-
           <button
             className="login_btn "
             onClick={() => {
@@ -91,7 +82,7 @@ export default function login() {
               if (username !== "" && result ) {
                 dispatch(fillUserAccount(userObj));
                 dispatch(addUser(userObj));
-                router.replace("/pages/");
+                // router.replace("/pages/");
               }
             }}
           >
