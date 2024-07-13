@@ -16,7 +16,7 @@ interface ShowData {
 
 const getData = async (id: string) => {
   try {
-    const res = await fetch(`https://api.tvmaze.com/shows/${id}/episodes`);
+    const res = await fetch(`https://api.tvmaze.com/shows/${id}`);
     console.log(res)
     if (!res.ok) {
       throw new Error("failed to fetch")
