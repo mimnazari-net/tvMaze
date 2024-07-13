@@ -7,7 +7,7 @@ import Image from "next/image";
 import { FcLikePlaceholder, FcLike } from "react-icons/fc";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../../redux/store";
-import { addtoFavorites } from "../../../../redux/tvMazeSlice";
+import { addtoFavorites, fillMovies } from "../../../../redux/tvMazeSlice";
 
 export default function Showmovies() {
   const [movies, setMovies] = useState<any[]>([]);
@@ -19,7 +19,10 @@ export default function Showmovies() {
   useEffect(() => {
     axios
       .get("https://api.tvmaze.com/shows")
-      .then((d: any) => setMovies(d.data))
+      .then((d: any) => {
+        setMovies(d.data);
+        dispatch(fillMovies(d.data))
+      })
       .catch((e: any) => console.log(e));
   }, []);
 

@@ -2,6 +2,8 @@
 import { useEffect, useState } from "react";
 import "../../../styles/searchBar.css";
 import { FaSearch } from "react-icons/fa";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../redux/store";
 export default function Searchbar() {
   const [searchItem, setSearchItem] = useState("");
 
@@ -12,7 +14,20 @@ export default function Searchbar() {
     setSearchItem(searchTerm);
   };
 
-  // useEffect(() => {}, [searchItem]);
+  const select = useSelector((state: RootState) => state.tvMazeSlice.movies);
+
+  const [tmp, setTmp] = useState(select);
+
+  useEffect(() => {
+    let a = [...tmp];
+    if (searchItem !== "") {
+      const filteredItems = select.filter((item) =>
+        item.name.includes(searchItem)
+      );
+      setTmp(filteredItems);
+      console.log(tmp);
+    } else setTmp(select);
+  }, [searchItem]);
 
   return (
     <div className="searchbar_content">
@@ -23,7 +38,7 @@ export default function Searchbar() {
         onChange={handleChangeSearch}
         value={searchItem}
       />
-      <button className="searchbar_btn">
+      <button className="searchbar_btn" >
         <FaSearch />
       </button>
     </div>

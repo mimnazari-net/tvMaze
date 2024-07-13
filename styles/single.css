@@ -1,0 +1,23 @@
+.singleFilm_container{
+    width: 100%;
+    height: 800px;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+
+}
+.singleFilm_leftSide{
+    width: 40%;
+}
+.singleFilm_poster{
+    border-radius: 20px;
+}
+.singleFilm_rightSide{
+    width: 50%;
+    margin-left: 10px;
+}
+.singleFilm_rightSide_txt{
+    font-size: xx-large;
+    color: red;
+    font-weight: 800;
+}
