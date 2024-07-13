@@ -11,6 +11,7 @@ interface initialState_type {
   user: userType;
   isLogin: boolean;
   selectedComp: string;
+  favorites: any[]
 }
 
 const initialState: initialState_type = {
@@ -21,6 +22,7 @@ const initialState: initialState_type = {
   },
   isLogin: false,
   selectedComp: "",
+  favorites: []
 };
 
 const tvMazeSlice = createSlice({
@@ -54,8 +56,14 @@ const tvMazeSlice = createSlice({
     showComponents: (state, { payload }: { payload: string }) => {
       state.selectedComp = payload;
     },
+    addtoFavorites: (state, { payload }: { payload: any }) => {
+      let favItems = [...state.favorites]
+      favItems.push(payload)
+      state.favorites = favItems
+      console.log(state.favorites)
+    },
   },
 });
 
-export const { addUser, fillUserAccount, logOut , showComponents} = tvMazeSlice.actions;
+export const { addUser, fillUserAccount, logOut , showComponents, addtoFavorites} = tvMazeSlice.actions;
 export default tvMazeSlice.reducer;

@@ -5,10 +5,16 @@ import "../../../../styles/showmovies.css";
 import Link from "next/link";
 import Image from "next/image";
 import { FcLikePlaceholder, FcLike } from "react-icons/fc";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../../../redux/store";
+import { addtoFavorites } from "../../../../redux/tvMazeSlice";
 
 export default function Showmovies() {
   const [movies, setMovies] = useState<any[]>([]);
-  const [liked, setLiked] = useState<boolean>(false);
+  const [liked, setLiked] = useState<boolean>(true);
+  const [likedStatus, setLikedStatus] = useState<{ [key: string]: boolean }>({})
+  const select = useSelector((state: RootState) => state.tvMazeSlice);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     axios
@@ -16,6 +22,28 @@ export default function Showmovies() {
       .then((d: any) => setMovies(d.data))
       .catch((e: any) => console.log(e));
   }, []);
+
+  const AddToFavList = (id: string, name: string) => {
+    const isFav = select.favorites.find((elem) => elem.id === id);
+    console.log(isFav);
+
+    let items = {
+      id,
+      name,
+    };
+
+    if (isFav === undefined) {
+      dispatch(addtoFavorites(items));
+      // setLiked(true)
+    } else {
+      // remove from list
+    }
+
+    setLikedStatus((prevStatus) => ({
+      ...prevStatus,
+      [id]: !prevStatus[id]
+    }))
+  };
 
   return (
     <div className="showmovies_container">
@@ -46,11 +74,10 @@ export default function Showmovies() {
               <div
                 className="showmovies_like"
                 onClick={() => {
-                  setLiked(!liked);
-                  console.log(liked)
+                  AddToFavList(item.id, item.name);
                 }}
               >
-                {liked ? <FcLikePlaceholder /> : <FcLike />}
+                {likedStatus[item.id] ? <FcLike /> : <FcLikePlaceholder />}
               </div>
             </div>
           );
