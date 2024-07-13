@@ -1,7 +1,7 @@
 import Image from "next/image";
-import "../../../../styles/header.css";
+import "../../../styles/header.css";
 import Link from "next/link";
-import SearchBar from "../searchBar/page"
+import SearchBar from "./searchBar"
 
 function Header() {
   return (

@@ -9,7 +9,7 @@ import {
   addUser,
   fillUserAccount,
   userType,
-} from "../../../../redux/tvMazwSlice";
+} from "../../../../redux/tvMazeSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function Register() {
@@ -87,7 +87,7 @@ export default function Register() {
         )}
 
         <div className="register_right_side_container">
-          <p className="register_right_side_title">welcome!</p>
+          <p className="register_right_side_title">Welcom to register page!</p>
 
           <div className="register_right_side_inputs">
             <div className="register_right_side_inputs_i">
@@ -143,7 +143,7 @@ export default function Register() {
               if (username !== "" && result && agree) {
                 dispatch(fillUserAccount(userObj));
                 dispatch(addUser(userObj));
-                router.replace("/pages/vertifycode");
+                router.replace("/pages/dashboard");
               }
             }}
           >

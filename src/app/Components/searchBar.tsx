@@ -1,6 +1,7 @@
-"use client"
+"use client";
 import { useEffect, useState } from "react";
-import "../../../../styles/searchBar.css"
+import "../../../styles/searchBar.css";
+import { FaSearch } from "react-icons/fa";
 export default function Searchbar() {
   const [searchItem, setSearchItem] = useState("");
 
@@ -22,7 +23,9 @@ export default function Searchbar() {
         onChange={handleChangeSearch}
         value={searchItem}
       />
-      <button className="searchbar_btn">icon</button>
+      <button className="searchbar_btn">
+        <FaSearch />
+      </button>
     </div>
   );
 }

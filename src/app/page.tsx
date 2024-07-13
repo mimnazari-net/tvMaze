@@ -1,6 +1,6 @@
 import "../../styles/home.css";
-import Footer from "./Components/footer/page";
-import Header from "./Components/header/page";
+import Footer from "./Components/footer";
+import Header from "./Components/header";
 import Showmovies from "./pages/showMovies/page";
 
 export default function Home() {

@@ -9,7 +9,7 @@ import {
   addUser,
   fillUserAccount,
   userType,
-} from "../../../../redux/tvMazwSlice";
+} from "../../../../redux/tvMazeSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 
@@ -48,7 +48,7 @@ export default function login() {
       <div className="login_right_side">
         
         <div className="login_right_side_container">
-          <p className="login_right_side_title">Wellcome !</p>
+          <p className="login_right_side_title">Wellcome to login page!</p>
           <div className="login_right_side_inputs">
             <div className="login_right_side_inputs_i">
               <FaRegUser />

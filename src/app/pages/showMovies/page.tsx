@@ -4,10 +4,11 @@ import axios from "axios";
 import "../../../../styles/showmovies.css";
 import Link from "next/link";
 import Image from "next/image";
+import { FcLikePlaceholder, FcLike } from "react-icons/fc";
 
 export default function Showmovies() {
-
   const [movies, setMovies] = useState<any[]>([]);
+  const [liked, setLiked] = useState<boolean>(false);
 
   useEffect(() => {
     axios
@@ -21,29 +22,37 @@ export default function Showmovies() {
       <div className="showmovies_content">
         {movies.map((item, index) => {
           return (
-            <Link
-              href={`/pages/showMovies/${item.id}`}
-              key={index}
-              className="showmovies_item"
-            >
-              
-              <div className="showmovies_poster">
-                <Image
-                  alt="پوستر فیلم"
-                  src={item.image.medium}
-                  width={150}
-                  height={250}
-                  className="showmovies_poster_img"
-                />
-              </div>
+            <div className="showmovies_item">
+              <Link
+                href={`/pages/showMovies/${item.id}`}
+                key={index}
+                className="showmovies_link"
+              >
+                <div className="showmovies_poster">
+                  <Image
+                    alt="پوستر فیلم"
+                    src={item.image.medium}
+                    width={120}
+                    height={160}
+                    className="showmovies_poster_img"
+                    unoptimized
+                  />
+                </div>
 
-              <div>
-                <p>
-                  {item.id} . {item.name} 
-                </p>
-                <p></p>
+                <div className="showmovies_text">
+                  {item.id} . {item.name}
+                </div>
+              </Link>
+              <div
+                className="showmovies_like"
+                onClick={() => {
+                  setLiked(!liked);
+                  console.log(liked)
+                }}
+              >
+                {liked ? <FcLikePlaceholder /> : <FcLike />}
               </div>
-            </Link>
+            </div>
           );
         })}
       </div>

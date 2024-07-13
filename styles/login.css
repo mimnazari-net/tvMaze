@@ -51,6 +51,7 @@
     padding-right: 30px;
     color: #5f5f5f;
     box-sizing: border-box;
+    padding: 10px;
   }
   .login_right_side_inputs_i {
     position: absolute;
@@ -88,7 +89,7 @@
   
   .login_btn {
     height: 56px;
-    background: gray;
+    background: #4b4b4b;
     border: none;
     border-radius: 5px;
     color: white;
@@ -97,10 +98,6 @@
     word-wrap: break-word;
   }
   
-  .css-1hdyuqk-MuiPaper-root-MuiAlert-root,
-  .css-to2f46-MuiPaper-root-MuiAlert-root {
-    direction: ltr;
-  }
   
   @media screen and (max-width: 600px) {
     .login_container {
@@ -132,5 +129,6 @@
     .login_btn {
       height: 46px;
     }
+
   }
   

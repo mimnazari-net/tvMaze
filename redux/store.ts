@@ -1,7 +1,7 @@
 "use client"
 import { configureStore } from "@reduxjs/toolkit";
-import bilboardSlice from "./tvMazwSlice";
-import tvMazwSlice from "./tvMazwSlice";
+import bilboardSlice from "./tvMazeSlice";
+import tvMazwSlice from "./tvMazeSlice";
 
 export function makeStore(){
   return configureStore({

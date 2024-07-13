@@ -13,30 +13,42 @@
 }
 
 .showmovies_item {
-  width: 200px;
-  height: 300px;
-  background-color: antiquewhite;
-  border-radius: 20px;
-  text-decoration: none;
-  color: black;
-  margin: 10px;
-  padding: 10px;
+  width: 180px;
+  height: 250px;
+  background-color: rgb(243, 243, 243);
+  border-radius: 15px;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  align-items: center;
+  margin: 5px;
+  padding: 10px;
+}
+
+.showmovies_link {
+  height: 200px;
+  text-decoration: none;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
 }
 
 .showmovies_poster {
-  width: 150px;
-  height: 200px;
+  width: 180px;
+  height: 160px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background-color: rgb(255, 0, 0);
-  border-radius: 10px;
 }
 .showmovies_poster_img {
-  border-radius: 20px;
+  border-radius: 10px;
+}
+.showmovies_text {
+  font-weight: 700;
+}
+.showmovies_like {
+  font-size: x-large;
 }

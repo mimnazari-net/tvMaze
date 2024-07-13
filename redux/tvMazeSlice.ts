@@ -10,6 +10,7 @@ interface initialState_type {
   arrUsers: userType[];
   user: userType;
   isLogin: boolean;
+  selectedComp: string;
 }
 
 const initialState: initialState_type = {
@@ -19,6 +20,7 @@ const initialState: initialState_type = {
     phoneNumber: "",
   },
   isLogin: false,
+  selectedComp: "",
 };
 
 const tvMazeSlice = createSlice({
@@ -49,8 +51,11 @@ const tvMazeSlice = createSlice({
     logOut: (state, { payload }: { payload: boolean }) => {
       state.isLogin = payload;
     },
+    showComponents: (state, { payload }: { payload: string }) => {
+      state.selectedComp = payload;
+    },
   },
 });
 
-export const { addUser, fillUserAccount, logOut } = tvMazeSlice.actions;
+export const { addUser, fillUserAccount, logOut , showComponents} = tvMazeSlice.actions;
 export default tvMazeSlice.reducer;
