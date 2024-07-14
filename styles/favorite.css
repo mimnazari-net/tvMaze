@@ -49,6 +49,7 @@
   font-size: 12px;
 }
 .favorite_item button {
+  width: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
